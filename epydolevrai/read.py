@@ -16,7 +16,7 @@ if (sys.argv[1] == "get") :
 with open('bs.csv', 'r') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
-        #print(row)
         if (id == row['id']) :
-            #print(row[int(id)])
-            print(row['id'], row['name'], row['email'])
+            print(f"id : {row['id']}")
+            print(f"name : {row['name']}")
+            print(f"email : {row['email']}")
