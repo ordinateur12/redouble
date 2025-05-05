@@ -33,6 +33,15 @@ def delete(id, data):
         writer.writeheader()
         writer.writerows(tab)
 
+def add(name, email):
+    with open('bs.csv', 'a', newline='') as csvfile:
+        fieldnames = ['name', 'email']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerow({'name': name, 'email': email})
+
+
+
 def opn():
     with open('bs.csv', 'r') as csvfile:
         reader = csv.DictReader(csvfile)
@@ -46,3 +55,5 @@ if __name__ == '__main__':
     if (sys.argv[1] == "del") :
         id = sys.argv[3]
         delete(id, data)
+    if (sys.argv[1] == "add") :
+        add(sys.argv[2], sys.argv[3])
